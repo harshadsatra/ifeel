@@ -1,0 +1,148 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>iFEEL</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400|Oswald:300" rel="stylesheet">
+	<link rel="stylesheet" href="../css/bootstrap.min.css" >
+	<link rel="stylesheet" href="../css/style.css">
+
+	<!--[if lt IE 9]>
+	  <link rel="stylesheet" href="css/ie.css">
+	<![endif]-->
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="homePage">
+	<style>
+		#touristsattraction{
+			background: #f2f2ec url(../img/rooms/Touristattraction.png) center left no-repeat;
+			background-size: 40%;
+		}
+	</style>
+	<section class="blockInfoContainer active" id="touristsattraction">
+		<div class="blockName" id="">
+			<div class="actionBlock">
+				<h2 class="sectionName">TOURISTS ATTRACTIONS</h2>
+				<span class="blockClose">
+					<svg version="1.1" id="back" x="0px" y="0px" width="33.637px" height="9.49px" viewBox="0 0 33.637 9.49" enable-background="new 0 0 33.637 9.49" xml:space="preserve">
+						<g>
+							<polyline fill="none" stroke="#466C78" stroke-linecap="round" stroke-miterlimit="10" points="28.175,8.99 32.889,4.745
+								28.175,0.5 	"/>
+							<line fill="none" stroke="#466C78" stroke-linecap="round" stroke-miterlimit="10" x1="32.817" y1="4.745" x2="0" y2="4.745"/>
+						</g>
+					</svg>
+				</span>
+			</div>
+			<h1 class="sectionTitle">Entertaining ways to learn</h1>
+			<div class="sectionSpacing">
+				<p>iFEEL is surrounded with places which should be visited by everyone once in a lifetime. These places have their own attractions and charm that lures and captivates the attention of the visitor. Following are the places to visit if you are in iFEEL or in Lonavala.</p>
+				<p>Celebrity Wax Museum: In the heart of Lonavala, resides the most amazing place, which is beyond one's imagination. It is the celebrity wax museum, offering the similar experience of the world-renowned Madame Tussaud’s wax museum present in London. This wax museum is filled will wax effigies, of celebrities and famous and eminent personalities. This museum was started by Mr. Sunil Kandalloor for people, who cannot manage to visit the famous wax museum in London.</p>
+				<p>Durga Parmeshwari temple: This temple is located amidst the lush serenity of Lonavala. This temple is dedicated to goddess Durga and her consort Lord Shiva. This temple has gained popularity, because of the miracles that occurred in the temple.</p>
+				<p>Ekvira Temple: The most famous and ancient temple in Lonavala is, the temple dedicated to goddess Ekvira. This temple is situated atop the hill and is accompanied by a flight of 500 steps. Ekvira is the patroness of Koli tribe of Maharashtra and is the most celebrated goddess in Lonavala. This temple was built by Pandavas during their exile in the forest.</p>
+				<p>MTDC Karla: This is a resort which is a popular spot for group getaways. This resort has well-furnished rooms and has a space for outdoor sports and other recreational activities. It is in proximity to the water park. This resort is situated amidst the lush greenery of Lonavala and, offers the visitors amazing and picturesque view of nature.</p>
+				<p>Samudra Institute of marine time study: This institute is located near river Indrayani and offers a campus, which has state-of-the-art facilities and a ship; constructed to cater the students with real-life ship experience. Wet N Joy Water Park: Get drenched in the childhood memories of monsoon with Wet N Joy Water Park, which has the biggest wave pool in India. People come here to enjoy the amusement rides and relax and spend their quality time enjoying with friends and family.</p>
+			</div>
+		</div>
+	</section>
+    <script src="../js/jquery-2.2.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+	<script src="../js/plugins.js"></script>
+	<script src="../js/script.js"></script>
+	<script>
+		$('.loaderContainer').on('click',function(){
+			$(this).fadeOut();
+		});
+		$('.show-block').on('click',function(){
+			$('.blocks').removeClass('up');
+			var block=$(this).data('block');
+			var n=4;
+			for(n=4;n>block;n--){
+				console.log(block,n);
+				$('#block-'+n).addClass('up');
+			}
+		});
+
+		$(".block").click(function() {
+			$('.blockInfoContainer').addClass('active');
+			//zoom(1.1);
+		});
+		$(".blockClose").click(function() {
+			$('.blockInfoContainer').removeClass('active');
+			//zoom(0.9);
+		});
+	</script>
+
+	<script>
+	 $('[data-toggle="tooltip"]').tooltip();
+
+	var img_ele = null,
+		x_cursor = 0,
+		y_cursor = 0,
+		x_img_ele = 0,
+		y_img_ele = 0;
+
+	zoom(1.2);
+	function zoom(zoomincrement) {
+		img_ele = document.getElementById('dragableDiv');
+		var pre_width = img_ele.getBoundingClientRect().width,
+			pre_height = img_ele.getBoundingClientRect().height;
+			zoom_width = pre_width * zoomincrement;
+			zoom_height = pre_height * zoomincrement;
+			zoom_left = ((pre_width * zoomincrement) - pre_width)/2;
+			zoom_top = ((pre_height * zoomincrement) - pre_height)/2;
+
+		img_ele.style.top = "-"+zoom_top + 'px';
+		img_ele.style.left = "-"+zoom_left + 'px';
+		img_ele.style.width = zoom_width + 'px';
+		img_ele.style.height = zoom_height + 'px';
+		img_ele = null;
+		console.log(zoomincrement,pre_width,pre_height,pre_width * zoomincrement,pre_height * zoomincrement);
+	}
+	/*
+	document.getElementById('zoomout').addEventListener('click', function() {
+		zoom(0.9);
+	});
+	document.getElementById('zoomin').addEventListener('click', function() {
+		zoom(1.1);
+	});
+	*/
+	function start_drag() {
+	  img_ele = this;
+	  x_img_ele = window.event.clientX - document.getElementById('dragableContainer').offsetLeft;
+	  y_img_ele = window.event.clientY - document.getElementById('dragableContainer').offsetTop;
+
+	}
+
+	function stop_drag() {
+	  img_ele = null;
+	}
+
+	function while_drag() {
+		var x_cursor = window.event.clientX;
+		var y_cursor = window.event.clientY;
+		if (img_ele !== null) {
+			img_ele.style.left = (x_cursor - x_img_ele) + 'px';
+			img_ele.style.top = ( window.event.clientY - y_img_ele) + 'px';
+			console.log(img_ele.style.left+' - '+img_ele.style.top);
+		}
+	}
+
+	document.getElementById('dragableDiv').addEventListener('mousedown', start_drag);
+	document.getElementById('dragableContainer').addEventListener('mousemove', while_drag);
+	document.getElementById('dragableContainer').addEventListener('mouseup', stop_drag);
+	</script>
+</body>
+</html>

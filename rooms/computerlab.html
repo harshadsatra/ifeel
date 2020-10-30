@@ -1,0 +1,144 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>iFEEL</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400|Oswald:300" rel="stylesheet">
+	<link rel="stylesheet" href="../css/bootstrap.min.css" >
+	<link rel="stylesheet" href="../css/style.css">
+
+	<!--[if lt IE 9]>
+	  <link rel="stylesheet" href="css/ie.css">
+	<![endif]-->
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="homePage">
+	<style>
+		#computerlab{
+			background: #f2f2ec url(../img/rooms/Computerlab.png) center left no-repeat;
+			background-size: 40%;
+		}
+	</style>
+	<section class="blockInfoContainer active" id="computerlab">
+		<div class="blockName" id="">
+			<div class="actionBlock">
+				<h2 class="sectionName">COMPUTER LAB</h2>
+				<span class="blockClose">
+					<svg version="1.1" id="back" x="0px" y="0px" width="33.637px" height="9.49px" viewBox="0 0 33.637 9.49" enable-background="new 0 0 33.637 9.49" xml:space="preserve">
+						<g>
+							<polyline fill="none" stroke="#466C78" stroke-linecap="round" stroke-miterlimit="10" points="28.175,8.99 32.889,4.745
+								28.175,0.5 	"/>
+							<line fill="none" stroke="#466C78" stroke-linecap="round" stroke-miterlimit="10" x1="32.817" y1="4.745" x2="0" y2="4.745"/>
+						</g>
+					</svg>
+				</span>
+			</div>
+			<h1 class="sectionTitle">Technology helps change conventions</h1>
+			<div class="sectionSpacing">
+				<p>Computer lab at iFEEL is equipped with the state- of-the- art technology. The computer lab is the place where the growing entrepreneurs are innovating and developing strategies to challenge the current conventions. The computer lab has an amazing connectivity with unlimited wifi, helping the student explore and widen the scope of learning which helps them to gain a different perspective and create something new.</p>
+				<img src="../img/rooms/ComputerlabPic.jpg" alt="">
+			</div>
+		</div>
+	</section>
+    <script src="../js/jquery-2.2.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+	<script src="../js/plugins.js"></script>
+	<script src="../js/script.js"></script>
+	<script>
+		$('.loaderContainer').on('click',function(){
+			$(this).fadeOut();
+		});
+		$('.show-block').on('click',function(){
+			$('.blocks').removeClass('up');
+			var block=$(this).data('block');
+			var n=4;
+			for(n=4;n>block;n--){
+				console.log(block,n);
+				$('#block-'+n).addClass('up');
+			}
+		});
+
+		$(".block").click(function() {
+			$('.blockInfoContainer').addClass('active');
+			//zoom(1.1);
+		});
+		$(".blockClose").click(function() {
+			$('.blockInfoContainer').removeClass('active');
+			//zoom(0.9);
+		});
+	</script>
+
+	<script>
+	 $('[data-toggle="tooltip"]').tooltip();
+
+	var img_ele = null,
+		x_cursor = 0,
+		y_cursor = 0,
+		x_img_ele = 0,
+		y_img_ele = 0;
+
+	zoom(1.2);
+	function zoom(zoomincrement) {
+		img_ele = document.getElementById('dragableDiv');
+		var pre_width = img_ele.getBoundingClientRect().width,
+			pre_height = img_ele.getBoundingClientRect().height;
+			zoom_width = pre_width * zoomincrement;
+			zoom_height = pre_height * zoomincrement;
+			zoom_left = ((pre_width * zoomincrement) - pre_width)/2;
+			zoom_top = ((pre_height * zoomincrement) - pre_height)/2;
+
+		img_ele.style.top = "-"+zoom_top + 'px';
+		img_ele.style.left = "-"+zoom_left + 'px';
+		img_ele.style.width = zoom_width + 'px';
+		img_ele.style.height = zoom_height + 'px';
+		img_ele = null;
+		console.log(zoomincrement,pre_width,pre_height,pre_width * zoomincrement,pre_height * zoomincrement);
+	}
+	/*
+	document.getElementById('zoomout').addEventListener('click', function() {
+		zoom(0.9);
+	});
+	document.getElementById('zoomin').addEventListener('click', function() {
+		zoom(1.1);
+	});
+	*/
+	function start_drag() {
+	  img_ele = this;
+	  x_img_ele = window.event.clientX - document.getElementById('dragableContainer').offsetLeft;
+	  y_img_ele = window.event.clientY - document.getElementById('dragableContainer').offsetTop;
+
+	}
+
+	function stop_drag() {
+	  img_ele = null;
+	}
+
+	function while_drag() {
+		var x_cursor = window.event.clientX;
+		var y_cursor = window.event.clientY;
+		if (img_ele !== null) {
+			img_ele.style.left = (x_cursor - x_img_ele) + 'px';
+			img_ele.style.top = ( window.event.clientY - y_img_ele) + 'px';
+			console.log(img_ele.style.left+' - '+img_ele.style.top);
+		}
+	}
+
+	document.getElementById('dragableDiv').addEventListener('mousedown', start_drag);
+	document.getElementById('dragableContainer').addEventListener('mousemove', while_drag);
+	document.getElementById('dragableContainer').addEventListener('mouseup', stop_drag);
+	</script>
+</body>
+</html>
